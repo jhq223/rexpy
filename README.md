@@ -4,7 +4,7 @@ pip install uv
 ```
 重启终端
 ```bash
-git clone 
+git clone https://github.com/jhq223/rexpy
 uv add pyproject.toml
 ```
 
