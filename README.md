@@ -6,13 +6,14 @@ pip install uv
 ```bash
 git clone https://github.com/jhq223/rexpy
 uv add pyproject.toml
+uv add pyproject.toml --dev
 ```
 
 ## Format
 每次更新然后提交后运行
 ```bash
-ruff check
-ruff format
+uv run ruff check
+uv run ruff format
 ```
 
 ## 项目说明
