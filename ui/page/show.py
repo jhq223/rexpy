@@ -1,16 +1,10 @@
 from taipy.gui import Markdown
-import os
 import pandas as pd
-from config import DATA_PATH
+from db import SessionLocal
 
-
-data = pd.read_csv(os.path.join(DATA_PATH, "test.csv"))
-
-
-data = data.loc[:, ["岗位名称", "薪酬low", "公司名称"]]
-data = data[data["薪酬low"].apply(lambda x: str(x).isdigit())]
-data["薪酬low"] = data["薪酬low"].map(int)
+with SessionLocal() as session:
+    df = pd.read_sql_table('job_info_clean', session.connection())
 
 show_md = Markdown("""
-<|{data}|table|allow_all_rows=True|filter=True|>
+<|{df}|table|allow_all_rows=True|filter=True|>
 """)

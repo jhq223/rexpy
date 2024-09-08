@@ -26,7 +26,7 @@ show_ele = browser.find_element(
 show_ele.click()
 
 today = datetime.date.today().strftime("%Y-%m-%d")
-for i in range(85, TAGS_LEN):
+for i in range(TAGS_LEN):
     current_a = browser.find_elements(
         by=By.XPATH, value='//*[@id="main"]/div/div[1]/div/div[1]/dl[1]/div/ul/li/div/a'
     )[i]
