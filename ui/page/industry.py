@@ -14,5 +14,5 @@ data = {
 }
 industry_md = Markdown("""
 ### 岗位行业分析
-<|{data}|chart|type=pie|values=values|labels=labels|>
+<|{data}|chart|type=pie|values=values|labels=labels|title=岗位行业分布|legend=true|style="width: 600px; height: 400px; background-color: #f0f0f0;"|>
 """)
