@@ -12,7 +12,8 @@ from selenium.webdriver.chrome.options import Options
 
 chrome_options = Options()
 chrome_options.add_argument(
-    r"--user-data-dir=C:/Users/jhq223/AppData/Local/Google/Chrome/User Data")
+    r"--user-data-dir=C:/Users/jhq223/AppData/Local/Google/Chrome/User Data"
+)
 chrome_options.add_argument(r"--profile-directory=Profile 1")
 browser = webdriver.Chrome(options=chrome_options)
 
@@ -30,8 +31,7 @@ for i in range(TAGS_LEN):
     current_a = browser.find_elements(
         by=By.XPATH, value='//*[@id="main"]/div/div[1]/div/div[1]/dl[1]/div/ul/li/div/a'
     )[i]
-    current_category = current_a.find_element(
-        by=By.XPATH, value="../../h4").text
+    current_category = current_a.find_element(by=By.XPATH, value="../../h4").text
     sub_category = current_a.text
     print(f"[{today}] 正在抓取{current_category}--{sub_category}")
     tag_element = browser.find_elements(
@@ -45,14 +45,13 @@ for i in range(TAGS_LEN):
     while True:
         print(f"正在抓取第 {page} 页数据...")
 
-        browser.execute_script(
-            "window.scrollTo(0, document.body.scrollHeight);")
+        browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
         time.sleep(10)
-        browser.execute_script(
-            "window.scrollTo(0, document.body.scrollHeight);")
+        browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
 
         job_detail = browser.find_elements(
-            by=By.XPATH, value='//div[@class="job-list-wrapper"]/div[@class="search-job-result"]/ul/li'
+            by=By.XPATH,
+            value='//div[@class="job-list-wrapper"]/div[@class="search-job-result"]/ul/li',
         )
 
         for job in job_detail:
@@ -99,7 +98,9 @@ for i in range(TAGS_LEN):
                 job_skills = ",".join(
                     [
                         skill.text.strip()
-                        for skill in job.find_elements(by=By.XPATH, value="./div[2]/ul/li")
+                        for skill in job.find_elements(
+                            by=By.XPATH, value="./div[2]/ul/li"
+                        )
                     ]
                 )
             except:

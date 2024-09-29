@@ -22,8 +22,9 @@ class JobInfo(Base):
     job_experience = Column(String(255), nullable=True, comment="工作年限")
     job_education = Column(String(255), nullable=True, comment="学历要求")
     job_skills = Column(String(255), nullable=True, comment="技能要求")
-    create_time = Column(DateTime, nullable=True,
-                         default=func.now(), comment="抓取时间")
+    create_time = Column(
+        DateTime, nullable=True, default=func.now(), comment="抓取时间"
+    )
 
     def __repr__(self) -> str:
         return f"JobInfo({self.category} {self.sub_category} {self.job_title} {self.province} {self.job_location} {self.job_company} {self.job_industry}) {self.job_finance} {self.job_scale} {self.job_welfare} {self.job_salary_range} {self.job_experience} {self.job_education} {self.job_skills} {self.create_time}"
@@ -49,8 +50,9 @@ class JobInfoClean(Base):
     job_experience = Column(String(255), nullable=True, comment="工作年限")
     job_education = Column(String(255), nullable=True, comment="学历要求")
     job_skills = Column(String(255), nullable=True, comment="技能要求")
-    create_time = Column(DateTime, nullable=True,
-                         default=func.now(), comment="抓取时间")
+    create_time = Column(
+        DateTime, nullable=True, default=func.now(), comment="抓取时间"
+    )
 
     def __repr__(self) -> str:
         return f"JobInfo({self.category} {self.sub_category} {self.job_title} {self.province} {self.job_location} {self.job_company} {self.job_industry}) {self.job_finance} {self.job_scale} {self.job_welfare} {self.job_salary_range} {self.job_experience} {self.job_education} {self.job_skills} {self.create_time}"

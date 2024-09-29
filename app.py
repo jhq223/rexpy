@@ -1,4 +1,12 @@
-from ui.page import root, show, industry, requirement, wordcloud, recommendation, prediction
+from ui.page import (
+    root,
+    show,
+    industry,
+    requirement,
+    wordcloud,
+    recommendation,
+    prediction,
+)
 
 pages = {
     "/": root.root_md,

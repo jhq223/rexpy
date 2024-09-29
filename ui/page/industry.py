@@ -4,8 +4,8 @@ from db import SessionLocal
 
 
 with SessionLocal() as session:
-    df = pd.read_sql_table('job_info_clean', session.connection())
-industry_counts = df['job_industry'].value_counts()
+    df = pd.read_sql_table("job_info_clean", session.connection())
+industry_counts = df["job_industry"].value_counts()
 industry_labels = industry_counts.index.tolist()  # This gives the industry names
 industry_values = industry_counts.values.tolist()  # This gives the counts
 data = {
